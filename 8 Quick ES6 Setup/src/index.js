@@ -4,7 +4,7 @@ import { createStore } from 'redux';
 function counterReducer(state={ count: 0 }, action) {
 
   var nextState = {
-    count
+    count : state
   }
 
   switch (action.type) {

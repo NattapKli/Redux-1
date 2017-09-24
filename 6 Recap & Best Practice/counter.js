@@ -1,10 +1,9 @@
-// REDCUER
+//REDUCER
 function counter(state, action) {
 
   if (typeof state === 'undefined') {
     return { count: 0 }
   }
-
   var nextState = {
     count: state.count
   }
@@ -17,11 +16,11 @@ function counter(state, action) {
     case 'MINUS':
       nextState.count = state.count - 1
       return nextState
-      break;
+          break;
     case 'RESET':
       nextState.count = 0
       return nextState
-      break;
+          break;
     default:
       return state
   }
@@ -29,28 +28,27 @@ function counter(state, action) {
 
 // STORE
 var store = Redux.createStore(counter);
-var counterEl = document.getElementById('counter');
+var counterEL = document.getElementById('counter');
 
 function render() {
   var state = store.getState()
-  counterEl.innerHTML = state.count.toString()
+  counterEL.innerHTML = state.count.toString()
 }
 
 render()
 store.subscribe(render)
 
-// ACTIONS
+// ACTION
 document.getElementById('add')
-  .addEventListener('click', function() {
+  .addEventListener('click', function(){
     store.dispatch({ type: 'ADD' })
   })
 
 document.getElementById('minus')
-  .addEventListener('click', function() {
+  .addEventListener('click', function(){
     store.dispatch({ type: 'MINUS' })
   })
-
 document.getElementById('reset')
-  .addEventListener('click', function() {
+  .addEventListener('click', function(){
     store.dispatch({ type: 'RESET' })
   })
